@@ -4,7 +4,7 @@ log = io.readlines
 
 if !log.any? {|line| line.match(/heroku/)}
   puts <<-ERROR.gsub(/^ {6}/, '')
-  You must run `bin/bootstrap` first!
+  You must run `bin/setup` first!
   ERROR
 else
   system("git push heroku master && heroku run rake db:migrate && heroku open")
